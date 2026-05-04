@@ -2,18 +2,18 @@ const budgetInput = document.querySelector(".budget__input");
 const budgetSetButton = document.querySelector(".budget__set-btn");
 
 const totalExpensesValueElement = document.querySelector(
-  "#total-expenses-value"
+  "#total-expenses-value",
 );
 const averageExpenseValueElement = document.querySelector(
-  "#average-expense-value"
+  "#average-expense-value",
 );
 const balanceValueElement = document.querySelector("#balance-value");
 
 const largestCategoryTitleElement = document.querySelector(
-  ".stats__item-title_largest"
+  ".stats__item-title_largest",
 );
 const largestCategoryValueElement = document.querySelector(
-  ".stats__item-value_largest"
+  ".stats__item-value_largest",
 );
 
 const groceriesValueElement = document.querySelector("#groceries-value");
@@ -21,7 +21,7 @@ const restaurantsValueElement = document.querySelector("#restaurants-value");
 const transportValueElement = document.querySelector("#transport-value");
 const homeValueElement = document.querySelector("#home-value");
 const subscriptionsValueElement = document.querySelector(
-  "#subscriptions-value"
+  "#subscriptions-value",
 );
 
 const modal = document.querySelector("#add-expense-modal");
@@ -56,7 +56,7 @@ function closeModal() {
 
 function handleDeleteExpense(element, data) {
   const index = expenseEntries.findIndex(
-    (expense) => expense[0] === data[0] && expense[1] === data[1]
+    (expense) => expense[0] === data[0] && expense[1] === data[1],
   );
   if (index !== -1) {
     expenseEntries.splice(index, 1);
@@ -76,13 +76,13 @@ function createExpenseListItem(data) {
     expenseElement.querySelector(".expense__category");
   const expenseValueElement = expenseElement.querySelector(".expense__amount");
   const expenseDeleteButton = expenseElement.querySelector(
-    ".expense__delete-btn"
+    ".expense__delete-btn",
   );
 
   expenseCategoryElement.textContent = categoryNames[data[0]];
   expenseValueElement.textContent = data[1].toFixed(2);
   expenseDeleteButton.addEventListener("click", () =>
-    handleDeleteExpense(expenseElement, data)
+    handleDeleteExpense(expenseElement, data),
   );
 
   return expenseElement;
@@ -122,7 +122,11 @@ function handleSaveBudget() {
 
 function updateBalanceElementColor() {
   updateBalanceColor();
-  const colorClasses = ["stats__item-value_balance_negative", "stats__item-value_balance_warning", "stats__item-value_balance_positive"];
+  const colorClasses = [
+    "stats__item-value_balance_negative",
+    "stats__item-value_balance_warning",
+    "stats__item-value_balance_positive",
+  ];
   balanceValueElement.classList.remove(...colorClasses);
 
   if (balanceColor === "red") {
