@@ -24,7 +24,7 @@ function calculateAverageExpense(expenses) {
     }
 
     let average = sum / expenses.length;
-    console.log("el promedio es:", average.toFixed(2));
+
     return average;
   }
 }
@@ -39,7 +39,7 @@ function calculateBalance(budget, expenses) {
     }
 
     let total = budget - sum;
-    console.log("El restante es:", total);
+
     return total;
   }
 }
@@ -63,8 +63,6 @@ function updateBalanceColor(balance, budget) {
 
 balanceColor = updateBalanceColor(updatedBalance, budgetValue);
 
-console.log(balanceColor);
-
 function calculateCategoryExpenses(categoryName) {
   let categoryTotal = 0;
   for (let i = 0; i < expenseEntries.length; i++) {
@@ -75,11 +73,6 @@ function calculateCategoryExpenses(categoryName) {
   }
   return [categoryName, categoryTotal];
 }
-
-console.log(
-  "resultado de calculateAverageExpense",
-  calculateCategoryExpenses("groceries"),
-);
 
 let categoryList = [
   "groceries",
@@ -111,11 +104,6 @@ function calculateLargestCategory() {
 
   return largestCategory;
 }
-
-console.log(
-  "Resultado de Calculo de categoria mas alta",
-  calculateLargestCategory(),
-);
 
 function addExpenseEntry(newExpense) {
   totalExpensesValue += newExpense[1];
