@@ -123,5 +123,3 @@ function addExpenseEntry(newExpense) {
 
   return [totalExpensesValue, expenseEntries];
 }
-
-console.log("Resultado Final", addExpenseEntry(["groceries", 120]));

@@ -155,24 +155,33 @@ function clearLocalStorage() {
 function setStats() {
   budgetInput.placeholder = budgetValue.toFixed(2);
   totalExpensesValueElement.textContent = totalExpensesValue.toFixed(2);
-  averageExpenseValueElement.textContent = calculateAverageExpense().toFixed(2);
-  balanceValueElement.textContent = calculateBalance().toFixed(2);
+  averageExpenseValueElement.textContent =
+    calculateAverageExpense(expenseEntries).toFixed(2);
+  balanceValueElement.textContent = calculateBalance(
+    budgetValue,
+    expenseEntries,
+  ).toFixed(2);
   updateBalanceElementColor();
 
-  groceriesValueElement.textContent =
-    calculateCategoryExpenses("groceries").toFixed(2);
-  restaurantsValueElement.textContent =
-    calculateCategoryExpenses("restaurants").toFixed(2);
-  transportValueElement.textContent =
-    calculateCategoryExpenses("transport").toFixed(2);
-  homeValueElement.textContent = calculateCategoryExpenses("home").toFixed(2);
-  subscriptionsValueElement.textContent =
-    calculateCategoryExpenses("subscriptions").toFixed(2);
+  let groceriesTotal = calculateCategoryExpenses("groceries")[1];
+  groceriesValueElement.textContent = groceriesTotal.toFixed(2);
 
-  const largestCategoryKey = calculateLargestCategory();
+  let restaurantsTotal = calculateCategoryExpenses("restaurants")[1];
+  restaurantsValueElement.textContent = restaurantsTotal.toFixed(2);
+
+  let transportTotal = calculateCategoryExpenses("transport")[1];
+  transportValueElement.textContent = transportTotal.toFixed(2);
+
+  let homeTotal = calculateCategoryExpenses("home")[1];
+  homeValueElement.textContent = homeTotal.toFixed(2);
+
+  let subscriptionsTotal = calculateCategoryExpenses("subscriptions")[1];
+  subscriptionsValueElement.textContent = subscriptionsTotal.toFixed(2);
+
+  let largestCategoryKey = calculateLargestCategory();
   largestCategoryTitleElement.textContent = categoryNames[largestCategoryKey];
   largestCategoryValueElement.textContent =
-    calculateCategoryExpenses(largestCategoryKey).toFixed(2);
+    calculateCategoryExpenses(largestCategoryKey);
 }
 
 openModalBtn.addEventListener("click", openModal);
